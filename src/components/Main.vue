@@ -1,20 +1,26 @@
 <template>
 <div>
-    <MovieList :filteredElements="filteredElements" />
+    <MovieList :filteredMovies="filteredMovies" />
+    <TVshowList :filteredTvShows="filteredTvShows" />
 </div>
 
 </template>
 
 <script>
 import MovieList from './MovieList.vue';
+import TVshowList from './TVshowList.vue';
 export default {
     props: {
-        filteredElements: {
+        filteredMovies: {
             type: Array,
             required: true
-        }
+        },
+        filteredTvShows: {
+            type: Array,
+            required: true
+        },
     },
-    components: { MovieList }
+    components: { MovieList, TVshowList }
 }
 </script>
 

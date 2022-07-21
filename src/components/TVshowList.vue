@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Card v-for="(movie, index) in filteredMovies" :key="index" :cardElement="movie" :cardElementType="'movie'" />
+    <Card v-for="(tvShow, index) in filteredTvShows" :key="index" :cardElement="tvShow" :cardElementType="'tvShow'" />
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import Card from './Card.vue';
 export default {
     props:{
-        filteredMovies:{
+        filteredTvShows:{
             type: Array,
             required: true
         }
