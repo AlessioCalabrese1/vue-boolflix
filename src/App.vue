@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @filters="viewingFilteredContent" />
-    <Main />
+    <Header @filters="getMovies" />
+    <Main :filteredElements="filteredElements" />
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
   data: function(){
     return{
       keyAPI: "404b2ed5e305c129916cb234a784ab73",
+      filteredElements: [],
     }
   },
 
@@ -25,20 +26,21 @@ export default {
   },
 
   methods:{
-    getMovie(){
-      axios.get("https://api.themoviedb.org/3/search/movie?api_key=404b2ed5e305c129916cb234a784ab73&query=ritorno+al+futuro")
+    getMovies(filter){
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.keyAPI}&query=${filter}`)
       .then( (result) => {
-        console.log(result.data.results)
+        console.log(result.data.results);
+        this.filteredElements=result.data.results;
+      })
+      .catch((error) => {
+        console.warn("Errore nell'interfacciamento all'API!")
+        console.warn(error);
       })
     },
-
-    viewingFilteredContent(filter){
-      console.log(filter);
-    }
   },
 
   created(){
-    this.getMovie();
+    
   }
 }
 </script>
