@@ -17,6 +17,7 @@ export default {
     return{
       keyAPI: "404b2ed5e305c129916cb234a784ab73",
       filteredElements: [],
+      userLanguage: "it"
     }
   },
 
@@ -27,7 +28,7 @@ export default {
 
   methods:{
     getMovies(filter){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.keyAPI}&query=${filter}`)
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
       .then( (result) => {
         console.log(result.data.results);
         this.filteredElements=result.data.results;
