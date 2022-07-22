@@ -39,16 +39,18 @@ export default {
         console.warn(error);
       });
 
-
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
-      .then( (result) => {
-        console.log(result.data.results);
-        this.filteredTvShows=result.data.results;
-      })
-      .catch((error) => {
-        console.warn("Errore nell'interfacciamento all'API!")
-        console.warn(error);
-      });
+      setTimeout(()=>{
+        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
+          .then((result) => {
+            console.log(result.data.results);
+            this.filteredTvShows = result.data.results;
+          })
+          .catch((error) => {
+            console.warn("Errore nell'interfacciamento all'API!")
+            console.warn(error);
+          });
+      }, 1000)
+      
     },
   },
 

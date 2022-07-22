@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Card v-for="(tvShow, index) in filteredTvShows" :key="index" :cardElement="tvShow" :cardElementType="'tvShow'" />
+    <Card v-for="tvShow in filteredTvShows" :key="tvShow.id" :cardElement="tvShow" :cardElementType="'tvShow'" />
   </div>
 </template>
 

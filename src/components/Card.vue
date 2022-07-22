@@ -1,6 +1,6 @@
 <template>
     <div class="card" style="width: 18rem;">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <img :src="`https://image.tmdb.org/t/p/w342${this.cardElement.poster_path}`" class="card-img-top" alt="immagine">
         <div class="card-body" v-if="cardElementType === 'movie'">
             <p class="card-text">{{ cardElement.title }}</p>
             <p class="card-text">{{ cardElement.original_title }}</p>
@@ -51,6 +51,7 @@ export default {
             ],
 
             backFallImgFlag: "fallback",
+            urlIm: "",
         }
     },
 
