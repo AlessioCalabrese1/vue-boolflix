@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap w-100">
     <Card v-for="tvShow in filteredTvShows" :key="tvShow.id" :cardElement="tvShow" :cardElementType="'tvShow'" />
   </div>
 </template>

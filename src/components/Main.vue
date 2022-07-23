@@ -1,10 +1,8 @@
 <template>
 <main class="d-flex">
-
-    <MovieList :filteredMovies="filteredMovies" />
-    <TVshowList :filteredTvShows="filteredTvShows" />
+        <MovieList :filteredMovies="filteredMovies" />
+        <TVshowList :filteredTvShows="filteredTvShows" />
 </main>
-
 </template>
 
 <script>
@@ -31,5 +29,6 @@ export default {
     main{
         flex-wrap: wrap;
         background-color: $companyBackgroundColor;
+        padding: 30px 50px;
     }
 </style>

@@ -53,15 +53,13 @@ export default {
       
     },
   },
-
-  created(){
-    
-  }
 }
 </script>
 
 <style lang="scss">
 @import "~bootstrap/scss/bootstrap.scss";
 
-
+main{
+  min-height: calc(100vh - 70px);
+}
 </style>

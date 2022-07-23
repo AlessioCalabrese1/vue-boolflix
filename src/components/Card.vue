@@ -1,6 +1,6 @@
 <template>
-    <div class="card position-relative" style="width: 250px;">
-        <img :src="`https://image.tmdb.org/t/p/w200${this.cardElement.poster_path}`" class="card-img-top" alt="immagine">
+    <div class="card position-relative">
+        <img :src="`https://image.tmdb.org/t/p/w342${this.cardElement.poster_path}`" class="card-img-top" alt="immagine">
         <div class="card-body" v-if="cardElementType === 'movie'">
             <p class="card-text">{{ cardElement.title }}</p>
             <p class="card-text">{{ cardElement.original_title }}</p>
@@ -99,6 +99,8 @@ export default {
 
     .card{
         border: 0;
+        margin: 5px;
+        width: calc(20% - 10px);
         img{
             border-radius: 0px;
             height: 100%;
