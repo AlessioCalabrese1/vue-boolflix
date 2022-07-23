@@ -1,6 +1,5 @@
 <template>
     <header class="d-flex justify-content-between p-3">
-
         <div class="logo">
             Boolfix
         </div>
@@ -10,15 +9,12 @@
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
             <input type="text" class="form-control" placeholder="Title" aria-label="Example text with button addon" aria-describedby="button-addon1"
-            v-model="filter" @keyup.enter="$emit('filters', filter)">
+            v-model="filter" @keyup="$emit('filters', filter)" >
         </div>
     </header>
 </template>
 
 <script>
-
-
-
 export default {
     data: function(){
         return{
@@ -33,6 +29,11 @@ export default {
 
     header{
         background-color: $companyBackgroundColor;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
     }
 
     .logo{

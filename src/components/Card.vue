@@ -2,29 +2,32 @@
     <div class="card position-relative">
         <img :src="`https://image.tmdb.org/t/p/w342${this.cardElement.poster_path}`" class="card-img-top" alt="immagine">
         <div class="card-body" v-if="cardElementType === 'movie'">
-            <p class="card-text">{{ cardElement.title }}</p>
-            <p class="card-text">{{ cardElement.original_title }}</p>
-            <p class="card-text">{{ cardElement.original_language }}</p>
+            <p class="card-text"><span>Title:</span> {{ cardElement.title }}</p>
+            <p class="card-text"><span>Original Title:</span> {{ cardElement.original_title }}</p>
             <div class="flag">
                 <img class="img-fluid" :src="require(`../assets/flags/${showFlag(cardElementType, cardElement.original_language)}.png`)" alt="flag">
             </div>
-            <p class="card-text">{{ voteStarCalculate(cardElement.vote_average) }}</p>
-            <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
-            <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i>
+            <p class="card-text">
+                <span>Vote:</span>  
+                <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
+                <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i>
+            </p>
+            <p class="card-text"><span>Overview:</span> {{ cardElement.overview }}</p>
         </div>
 
 
         <div class="card-body" v-if="cardElementType === 'tvShow'">
-            <p class="card-text">{{ cardElement.name }}</p>
-            <p class="card-text">{{ cardElement.original_name }}</p>
-            <p class="card-text">{{ cardElement.original_language }}</p>
-            <p class="card-text">{{ cardElement.origin_country}}</p>
+            <p class="card-text"><span>Title:</span> {{ cardElement.name }}</p>
+            <p class="card-text"><span>Original Title:</span> {{ cardElement.original_name }}</p>
             <div class="flag">
                 <img class="img-fluid" :src="require(`../assets/flags/${showFlag(cardElementType, cardElement.origin_country)}.png`)" alt="flag">
             </div>
-            <p class="card-text">{{ voteStarCalculate(cardElement.vote_average) }}</p>
-            <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
-            <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i>
+            <p class="card-text">
+                <span>Vote:</span>  
+                <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
+                <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i>
+            </p>
+            <p class="card-text"><span>Overview:</span> {{ cardElement.overview }}</p>
         </div>
     </div>
 </template>
@@ -101,6 +104,7 @@ export default {
         border: 0;
         margin: 5px;
         width: calc(20% - 10px);
+        transition: all 1s;
         img{
             border-radius: 0px;
             height: 100%;
@@ -120,8 +124,17 @@ export default {
             left: 0;
             width: 100%;
             height: 100%;
+            overflow: hidden;
+            p{
+                margin: 0;
+            }
         }
 
+    .card-text{
+        span{
+            font-weight: bold;
+        }
+    }
     .flag{
         width: 20px;
     }

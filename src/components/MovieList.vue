@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-wrap w-100">
+  <div class="d-flex flex-wrap w-100 position-relative">
     <Card v-for="movie in filteredMovies" :key="movie.id" :cardElement="movie" :cardElementType="'movie'" />
   </div>
 </template>
@@ -19,5 +19,5 @@ export default {
 </script>
 
 <style>
-
+  
 </style>

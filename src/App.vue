@@ -29,28 +29,32 @@ export default {
 
   methods:{
     getMoviesAndTvShows(filter){
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
-      .then( (result) => {
-        console.log(result.data.results);
-        this.filteredMovies=result.data.results;
-      })
-      .catch((error) => {
-        console.warn("Errore nell'interfacciamento all'API!")
-        console.warn(error);
-      });
-
-      setTimeout(()=>{
-        axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
+      if (filter == "") {
+        this.filteredMovies = [];
+        this.filteredTvShows = [];
+      }else{
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
           .then((result) => {
             console.log(result.data.results);
-            this.filteredTvShows = result.data.results;
+            this.filteredMovies = result.data.results;
           })
           .catch((error) => {
             console.warn("Errore nell'interfacciamento all'API!")
             console.warn(error);
           });
-      }, 1000)
-      
+
+        setTimeout(() => {
+          axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.keyAPI}&query=${filter}&language=${this.userLanguage}`)
+            .then((result) => {
+              console.log(result.data.results);
+              this.filteredTvShows = result.data.results;
+            })
+            .catch((error) => {
+              console.warn("Errore nell'interfacciamento all'API!")
+              console.warn(error);
+            });
+        }, 1000)
+      }
     },
   },
 }

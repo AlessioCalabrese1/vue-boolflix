@@ -27,6 +27,7 @@ export default {
 @import "../styles/variables.scss";
 
     main{
+        margin-top: 70px;
         flex-wrap: wrap;
         background-color: $companyBackgroundColor;
         padding: 30px 50px;
