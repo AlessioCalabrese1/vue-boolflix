@@ -1,6 +1,6 @@
 <template>
-    <div class="card" style="width: 18rem;">
-        <img :src="`https://image.tmdb.org/t/p/w342${this.cardElement.poster_path}`" class="card-img-top" alt="immagine">
+    <div class="card position-relative" style="width: 250px;">
+        <img :src="`https://image.tmdb.org/t/p/w200${this.cardElement.poster_path}`" class="card-img-top" alt="immagine">
         <div class="card-body" v-if="cardElementType === 'movie'">
             <p class="card-text">{{ cardElement.title }}</p>
             <p class="card-text">{{ cardElement.original_title }}</p>
@@ -97,8 +97,30 @@ export default {
 
 <style lang="scss" scoped>
 
+    .card{
+        border: 0;
+        img{
+            border-radius: 0px;
+            height: 100%;
+        }
+    }
+
+    .card:hover .card-body{
+        display: block;
+    }
+
+    .card-body{
+            background-color: black;
+            color: white;
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
     .flag{
         width: 20px;
     }
-
 </style>

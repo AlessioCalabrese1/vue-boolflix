@@ -1,8 +1,9 @@
 <template>
-<div>
+<main class="d-flex">
+
     <MovieList :filteredMovies="filteredMovies" />
     <TVshowList :filteredTvShows="filteredTvShows" />
-</div>
+</main>
 
 </template>
 
@@ -24,6 +25,11 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../styles/variables.scss";
 
+    main{
+        flex-wrap: wrap;
+        background-color: $companyBackgroundColor;
+    }
 </style>
