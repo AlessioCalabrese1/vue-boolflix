@@ -6,7 +6,7 @@
 
         <select class="form-select" aria-label="Default select example" v-model="genreSelected" @change="$emit('genreInterception', genreSelected)">
             <option value="All">All</option>
-            <option value="genre" v-for="genre in genres" :key="genre.id">{{genre.name}}</option>
+            <option :value="genre.id" v-for="genre in genres" :key="genre.id">{{genre.name}}</option>
         </select>
 
         <div class="input-group">

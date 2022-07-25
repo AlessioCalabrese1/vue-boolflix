@@ -61,23 +61,12 @@ export default {
 
     moviesAndTvShowsGenre(genre){
       if (genre == "All") {
+        console.log(genre)
         this.filteredMovies = this.movies;
         this.filteredTvShows = this.tvShows;
       }else{
-        this.filteredMovies = [];
-        console.log(this.filteredMovies);
-        for (let index = 0; index < this.movies.length; index++) {
-          console.log(this.movies[index].genre_ids)
-          console.log(genre)
-          if (this.movies[index].genre_ids.includes(genre.id)) {
-            console.log("sono nell IF")
-            this.filteredMovies.push(this.movies[index]);
-
-          }
-          
-        }
-        /* this.filteredMovies = this.movies.filter((movie) => movie.genre_ids.includes(genre.id)); */
-        /* this.filteredTvShows = this.tvShows.filter((tvShow) => tvShow.genre_ids.includes(genre.id)); */
+        this.filteredMovies = this.movies.filter((movie) => movie.genre_ids.includes(genre));
+        this.filteredTvShows = this.tvShows.filter((tvShow) => tvShow.genre_ids.includes(genre));
       }
     } 
   },

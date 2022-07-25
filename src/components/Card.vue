@@ -16,7 +16,7 @@
         </div>
 
 
-        <!-- <div class="card-body" v-if="cardElementType === 'tvShow'">
+        <div class="card-body" v-if="cardElementType === 'tvShow'">
             <p class="card-text"><span>Title:</span> {{ cardElement.name }}</p>
             <p class="card-text"><span>Original Title:</span> {{ cardElement.original_name }}</p>
             <div class="flag">
@@ -26,7 +26,7 @@
                 <span>Vote:</span>  
             </p>
             <p class="card-text"><span>Overview:</span> {{ cardElement.overview }}</p>
-        </div> -->
+        </div>
     </div>
 </template>
 
