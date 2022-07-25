@@ -1,6 +1,7 @@
 <template>
   <div class="d-flex flex-wrap w-100 position-relative">
-    <Card v-for="tvShow in filteredTvShows" :key="tvShow.id" :cardElement="tvShow" :cardElementType="'tvShow'" />
+    Serie tv
+    <Card v-for="(tvShow, index) in filteredTvShows" :key="index + 'cx'" :cardElement="tvShow" :cardElementType="'tvShow'" />
   </div>
 </template>
 

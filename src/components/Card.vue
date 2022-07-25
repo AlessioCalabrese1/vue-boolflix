@@ -9,14 +9,14 @@
             </div>
             <p class="card-text">
                 <span>Vote:</span>  
-                <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
-                <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i>
+                <!-- <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
+                <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i> -->
             </p>
             <p class="card-text"><span>Overview:</span> {{ cardElement.overview }}</p>
         </div>
 
 
-        <div class="card-body" v-if="cardElementType === 'tvShow'">
+        <!-- <div class="card-body" v-if="cardElementType === 'tvShow'">
             <p class="card-text"><span>Title:</span> {{ cardElement.name }}</p>
             <p class="card-text"><span>Original Title:</span> {{ cardElement.original_name }}</p>
             <div class="flag">
@@ -24,11 +24,9 @@
             </div>
             <p class="card-text">
                 <span>Vote:</span>  
-                <i class="fa-solid fa-star" v-for="(star, index) in voteStarCalculate(cardElement.vote_average)" :key="index"></i>
-                <i class="fa-regular fa-star" v-for="(star, index) in voteStarEmptyCalculate(cardElement.vote_average)" :key="index"></i>
             </p>
             <p class="card-text"><span>Overview:</span> {{ cardElement.overview }}</p>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -69,7 +67,6 @@ export default {
     methods:{
         showFlag(elementType, nationalityIdentifier){
             if (elementType === "tvShow") {
-                console.log(nationalityIdentifier)
                 for (let index = 0; index < this.flags.length; index++) {
                     if (this.flags[index].country == nationalityIdentifier) {
                         return this.flags[index].language;
